@@ -73,9 +73,9 @@ generateLibopus()
     else # contains "Mac"
         minversion="-mmacosx-version-min=10.10"
     fi
-    ./configure CC=clang --enable-float-approx --disable-shared --enable-static --with-pic \
+    ./configure CC=clang --disable-shared --enable-static --with-pic \
         --disable-extra-programs --disable-doc --host=$host \
-        CFLAGS=" -arch $arch -Ofast -flto -g -fPIE $minversion -isysroot $sdk" \
+        CFLAGS=" -arch $arch -O3 -g -fPIE $minversion -isysroot $sdk" \
         LDFLAGS=" -flto -fPIE $minversion" >> $logfile
 
     make >> $logfile
